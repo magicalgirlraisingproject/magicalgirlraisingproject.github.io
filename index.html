@@ -1,1 +1,337 @@
-Welcome.
+<!DOCTYPE html><html lang="pl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Magical Girl Raising Project — dopracowana strona fanowska po polsku." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://magicalgirlraisingproject.github.io/icons/favicon.png" />
+  <title>Magical Girl Raising Project</title>  <style>
+    :root {
+      --bg: #f5f7ff;
+      --bg-soft: #ffffff;
+      --card: rgba(255, 255, 255, 0.55);
+      --card-strong: rgba(255, 255, 255, 0.70);
+      --text: #182033;
+      --muted: #5f6b85;
+      --border: rgba(24, 32, 51, 0.10);
+      --accent: #ff3d8d;
+      --accent-2: #7a2cff;
+      --shadow: 0 18px 50px rgba(40, 52, 82, 0.10);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0f1020;
+      --bg-soft: #151733;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: rgba(245, 247, 255, 0.75);
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,61,141,0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(122,42,255,0.10), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg-soft));
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg-soft) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand img { width: 42px; height: 42px; border-radius: 12px; }
+
+    .menu { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .menu a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    html[data-theme="dark"] .menu a { background: rgba(255,255,255,0.06); }
+
+    .theme select {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .hero { padding: 28px 0; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-text {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 { margin: 0; font-size: 2.6rem; letter-spacing: -0.04em; line-height: 1.02; }
+
+    .lead { margin: 0; color: var(--muted); line-height: 1.85; }
+
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border: none;
+    }
+
+    section { padding: 18px 0; }
+
+    .section-card { padding: 22px; }
+
+    .section-head {
+      margin-bottom: 10px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .section-head h2 { margin: 0; }
+    .section-head p { margin: 4px 0 0 0; color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+
+    .box { padding: 16px; border-radius: 16px; border: 1px solid var(--border); }
+
+    .char-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .char {
+      display: block;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.18);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .char:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .char img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .char span {
+      display: block;
+      padding: 9px 10px;
+      font-size: 0.92rem;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+
+    footer { text-align: center; padding: 30px 0; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .char-grid { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 2.2rem; }
+    }
+
+    @media (max-width: 560px) {
+      .char-grid { grid-template-columns: 1fr; }
+      .menu { justify-content: flex-start; }
+    }
+  </style></head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="https://magicalgirlraisingproject.github.io/icons/logo.png" alt="Logo Magical Girl Raising Project">
+      Magical Girl Raising Project
+    </div><div class="menu">
+  <a href="/postacie/">Postacie</a>
+  <a href="/galeria/">Galeria</a>
+  <a href="/nowosci/">Nowości</a>
+  <a href="/kontakt/">Kontakt</a>
+</div>
+
+<div class="theme">
+  <select id="themeSelect" aria-label="Wybór motywu">
+    <option value="light">Jasny</option>
+    <option value="dark">Ciemny</option>
+    <option value="auto">Auto</option>
+  </select>
+</div>
+
+  </div>
+</header><main class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="card">
+        <img src="https://magicalgirlraisingproject.github.io/files/mgrp.jpg" alt="Okładka Magical Girl Raising Project">
+      </div><div class="card hero-text">
+    <h1>Magical Girl Raising Project</h1>
+    <p class="lead">
+      Magical Girl Raising Project to seria dark fantasy opowiadająca o świecie, w którym popularna aplikacja mobilna daje wybranym osobom szansę zostania prawdziwą magiczną dziewczyną. Każda z nich otrzymuje własne unikalne moce, niezwykłe zdolności oraz możliwość pomagania ludziom w zamian za zdobywanie specjalnych Magical Candies. Początkowo wszystko wygląda jak spełnienie marzeń i przypomina klasyczne historie o magical girls, pełne kolorów, magii i bohaterskich czynów.
+      <br><br>
+      Sytuacja zmienia się jednak w momencie, gdy administrator projektu ogłasza, że liczba magicznych dziewczyn w mieście musi zostać zmniejszona o połowę. To, co miało być niewinną rywalizacją o punkty, bardzo szybko zamienia się w brutalną walkę o przetrwanie, gdzie każda uczestniczka próbuje ochronić własne życie. Z czasem zasady stają się coraz bardziej okrutne, a bohaterki zostają zmuszone do podejmowania trudnych decyzji i konfrontacji z innymi magical girls.
+      <br><br>
+      Seria wyróżnia się mocnym kontrastem pomiędzy uroczą stylistyką a cięższym, psychologicznym klimatem. Magical Girl Raising Project skupia się nie tylko na akcji i brutalności, ale również na emocjach postaci, ich motywacjach, strachu oraz konsekwencjach wyborów podejmowanych w świecie, w którym zaufanie bardzo szybko może przerodzić się w desperacką walkę o życie.
+    </p>
+
+  </div>
+</div>
+
+  </section>  <section>
+    <div class="card section-card">
+      <div class="section-head">
+        <h2>Odcinki</h2>
+        <p>12 odcinków • ostatni: 17.12.2016</p>
+      </div><div class="grid">
+    <div class="box">Liczba: 12</div>
+    <div class="box">Ostatni: 17.12.2016</div>
+    <div class="box">Status: zakończone</div>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="/odcinki/">Lista odcinków</a>
+  </div>
+</div>
+
+  </section>  <section>
+    <div class="card section-card">
+      <div class="section-head">
+        <h2>Postacie</h2>
+        <p>Top 5 postaci</p>
+      </div><div class="char-grid">
+    <a class="char" href="postacie/snow-white.html">
+      <img src="https://magicalgirlraisingproject.github.io/files/snow_white.jpg" alt="Snow White">
+      <span>Snow White</span>
+    </a>
+    <a class="char" href="postacie/ripple.html">
+      <img src="https://magicalgirlraisingproject.github.io/files/ripple.jpg" alt="Ripple">
+      <span>Ripple</span>
+    </a>
+    <a class="char" href="postacie/la-pucelle.html">
+      <img src="https://magicalgirlraisingproject.github.io/files/la_pucelle.jpg" alt="La Pucelle">
+      <span>La Pucelle</span>
+    </a>
+    <a class="char" href="postacie/top-speed.html">
+      <img src="https://magicalgirlraisingproject.github.io/files/top_speed.jpg" alt="Top Speed">
+      <span>Top Speed</span>
+    </a>
+    <a class="char" href="postacie/calamity-mary.html">
+      <img src="https://magicalgirlraisingproject.github.io/files/calamity_mary.jpg" alt="Calamity Mary">
+      <span>Calamity Mary</span>
+    </a>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="/postacie/">Wyświetl wszystkie postacie</a>
+  </div>
+</div>
+
+  </section>
+</main><footer>
+  Fanowska strona MGRP
+</footer><script>
+  const root = document.documentElement;
+  const themeSelect = document.getElementById('themeSelect');
+
+  function applyTheme(theme) {
+    if (theme === 'auto') {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = prefersDark ? 'dark' : 'light';
+    } else {
+      root.dataset.theme = theme;
+    }
+  }
+
+  const savedTheme = localStorage.getItem('mgrp-theme') || 'light';
+  themeSelect.value = savedTheme;
+  applyTheme(savedTheme);
+
+  themeSelect.addEventListener('change', () => {
+    const selected = themeSelect.value;
+    localStorage.setItem('mgrp-theme', selected);
+    applyTheme(selected);
+  });
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  media.addEventListener?.('change', () => {
+    if (themeSelect.value === 'auto') applyTheme('auto');
+  });
+</script></body>
+</html>
