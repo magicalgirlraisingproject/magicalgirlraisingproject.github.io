@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="pl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Odcinek 5 - Magical Girl Raising Project" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://magicalgirlraisingproject.github.io/icons/favicon.png" />
+  <title>Odcinek 5 - Magical Girl Raising Project</title>  <style>
+  :root {
+    --bg: #f5f7ff;
+    --bg-soft: #ffffff;
+    --card: rgba(255, 255, 255, 0.55);
+    --card-strong: rgba(255, 255, 255, 0.70);
+    --text: #182033;
+    --muted: #5f6b85;
+    --border: rgba(24, 32, 51, 0.10);
+    --accent: #ff3d8d;
+    --accent-2: #7a2cff;
+    --shadow: 0 18px 50px rgba(40, 52, 82, 0.10);
+    --radius: 22px;
+    --max: 1180px;
+  }
+
+  html[data-theme="dark"] {
+    --bg: #0f1020;
+    --bg-soft: #151733;
+    --card: rgba(255, 255, 255, 0.08);
+    --card-strong: rgba(255, 255, 255, 0.12);
+    --text: #f5f7ff;
+    --muted: rgba(245, 247, 255, 0.75);
+    --border: rgba(255, 255, 255, 0.10);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Poppins", system-ui, sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255,61,141,0.10), transparent 30%),
+      radial-gradient(circle at top right, rgba(122,42,255,0.10), transparent 28%),
+      linear-gradient(180deg, var(--bg), var(--bg-soft));
+    color: var(--text);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .wrap {
+    width: min(100% - 32px, var(--max));
+    margin: 0 auto;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    background: color-mix(in srgb, var(--bg-soft) 85%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+  }
+
+  .brand img {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .menu a {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.35);
+    font-weight: 500;
+  }
+
+  html[data-theme="dark"] .menu a {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .theme select {
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+  }
+
+  main {
+  padding: 32px 0 40px;
+}
+
+  .card {
+    background: linear-gradient(180deg, var(--card-strong), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+  }
+
+  .meta {
+    margin-top: 8px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .desc {
+    margin-top: 16px;
+    line-height: 1.85;
+    color: var(--muted);
+  }
+
+  .gallery {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .gallery img {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .ratings {
+    margin-top: 22px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .badge {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    font-weight: 700;
+  }
+
+  .none {
+    background: #ffffff;
+    color: #000;
+  }
+
+  .low {
+    background: #2ecc71;
+    color: #fff;
+  }
+
+  .mid {
+    background: #f39c12;
+    color: #fff;
+  }
+
+  .high {
+    background: #e74c3c;
+    color: #fff;
+  }
+
+  .extreme {
+    background: #8e44ad;
+    color: #fff;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 0;
+  }
+
+  @media (max-width: 900px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+      height: 220px;
+    }
+  }
+  </style></head>
+<body><header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="https://magicalgirlraisingproject.github.io/icons/logo.png" alt="Logo Magical Girl Raising Project">
+      Magical Girl Raising Project
+    </a><div class="menu">
+  <a href="/postacie/">Postacie</a>
+  <a href="/galeria/">Galeria</a>
+  <a href="/nowosci/">Nowości</a>
+  <a href="/kontakt/">Kontakt</a>
+</div>
+
+<div class="theme">
+  <select id="themeSelect">
+    <option value="light">Jasny</option>
+    <option value="dark">Ciemny</option>
+    <option value="auto">Auto</option>
+  </select>
+</div>
+
+  </div>
+</header><main class="wrap">  <section class="card">
+  <h1>Odcinek 5 - New Character!</h1>
+  <div class="meta">Data emisji: 29.10.2016</div>
+
+  <p class="desc">
+    Sister Nana proponuje pozostałym magical girls współpracę, mając nadzieję na wspólne znalezienie sposobu na zatrzymanie okrutnego systemu gry. Ripple jednak nie ufa innym uczestniczkom i wyraźnie pokazuje, że nie ma zamiaru z nikim współpracować.
+    <br><br>
+    W desperacji Sister Nana zwraca się do Magicaloid 44, która wcześniej potajemnie wykorzystywała ją dla własnych korzyści finansowych. Sprzedawała jej bezużyteczne gadżety z przyszłości, obiecując technologie mogące pomóc przemienić Weiss Winterprison w magical girl. Nana oferuje jej jeszcze większą sumę pieniędzy w zamian za próbę negocjacji z administratorami gry.
+    <br><br>
+    Niedługo później Sister Nana i Weiss Winterprison zostają odnalezione przez Cranberry. Ta otwarcie przyznaje, że obecny brutalny charakter gry całkowicie jej odpowiada, po czym bez ostrzeżenia rozpoczyna atak.
+    <br><br>
+    Weiss Winterprison wykorzystuje swoją magię ziemi, a dzięki wzmacniającej magii Sister Nany obie próbują stawić opór Cranberry. Jednak przeciwniczka używa zdolności manipulowania falami dźwiękowymi, całkowicie dominując walkę i zmuszając je do odwrotu.
+    <br><br>
+    Następnego wieczoru Sister Nana i Weiss Winterprison spotykają nową magical girl — Hardgore Alice. W tym samym czasie La Pucelle zostaje skonfrontowana przez Cranberry, która ponownie szuka silnego przeciwnika do walki.
+  </p>
+
+  <div class="gallery">
+    <img src="https://magicalgirlraisingproject.github.io/files/odcinki/5.jpg" alt="odcinek5-01">
+    <img src="https://magicalgirlraisingproject.github.io/files/odcinki/second_5.jpg" alt="odcinek5-02">
+    <img src="https://magicalgirlraisingproject.github.io/files/odcinki/third_5.jpg" alt="odcinek5-03">
+  </div>
+
+  <div class="ratings">
+    <div class="badge none">Nudity: brak</div>
+    <div class="badge low">Gore & Violence: lekki</div>
+    <div class="badge low">Intensywność scen: lekki</div>
+    <div class="badge low">Wiek: 7+</div>
+  </div>
+</section>
+</main><footer>© 2026 Magical Girl Raising Project</footer><script>
+const root=document.documentElement;
+const sel=document.getElementById('themeSelect');
+
+function apply(t){
+  if(t==='auto'){
+    root.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  }else root.dataset.theme=t;
+}
+
+let saved=localStorage.getItem('mgrp-theme')||'light';
+sel.value=saved;
+apply(saved);
+
+sel.onchange=()=>{
+  localStorage.setItem('mgrp-theme',sel.value);
+  apply(sel.value);
+};
+</script></body>
+  </html>
