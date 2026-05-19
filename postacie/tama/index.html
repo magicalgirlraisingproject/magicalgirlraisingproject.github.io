@@ -1,0 +1,418 @@
+<!DOCTYPE html><html lang="pl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tama - Magical Girl Raising Project." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://magicalgirlraisingproject.github.io/icons/favicon.png" />
+  <title>Tama - Magical Girl Raising Project</title>  <style>
+    :root {
+      --bg: #f5f7ff;
+      --bg-soft: #ffffff;
+      --card: rgba(255, 255, 255, 0.55);
+      --card-strong: rgba(255, 255, 255, 0.70);
+      --text: #182033;
+      --muted: #5f6b85;
+      --border: rgba(24, 32, 51, 0.10);
+      --accent: #ff3d8d;
+      --accent-2: #7a2cff;
+      --shadow: 0 18px 50px rgba(40, 52, 82, 0.10);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0f1020;
+      --bg-soft: #151733;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: rgba(245, 247, 255, 0.75);
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,61,141,0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(122,42,255,0.10), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg-soft));
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg-soft) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand img { width: 42px; height: 42px; border-radius: 12px; }
+
+    .menu { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .menu a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    html[data-theme="dark"] .menu a { background: rgba(255,255,255,0.06); }
+
+    .theme select {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+    }
+
+    main { padding-bottom: 40px; }
+
+    .hero { padding: 28px 0 18px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .portrait {
+      min-height: 0;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .content {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 61, 141, 0.10);
+      border: 1px solid rgba(255, 61, 141, 0.16);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .info-box {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.18);
+    }
+
+    html[data-theme="dark"] .info-box {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .info-box span {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .info-box b {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 14px 0;
+    }
+
+    .section-card {
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .section-head {
+      margin-bottom: 14px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .bio {
+      margin: 0;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.18);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    html[data-theme="dark"] .chip { background: rgba(255,255,255,0.05); }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .portrait { min-height: 360px; }
+    }
+
+    @media (max-width: 560px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .menu { justify-content: flex-start; }
+    }
+  </style></head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Strona główna">
+      <img src="https://magicalgirlraisingproject.github.io/icons/logo.png" alt="Logo Magical Girl Raising Project">
+      Magical Girl Raising Project
+    </a><div class="menu">
+  <a href="/postacie/">Postacie</a>
+  <a href="/galeria/">Galeria</a>
+  <a href="/nowosci/">Nowości</a>
+  <a href="/kontakt/">Kontakt</a>
+</div>
+
+<div class="theme">
+  <select id="themeSelect" aria-label="Wybór motywu">
+    <option value="light">Jasny</option>
+    <option value="dark">Ciemny</option>
+    <option value="auto">Auto</option>
+  </select>
+</div>
+
+  </div>
+</header><main class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="card portrait">
+        <img src="https://magicalgirlraisingproject.github.io/files/tama.jpg" alt="Tama / Tama Inubouzaki">
+      </div><div class="card content">
+  <span class="eyebrow">Tama / Tama Inubouzaki</span>
+  <h1>Tama</h1>
+
+  <p class="lead">
+    Tama, której prawdziwe imię to Kokona Matsumoto,
+    jest jedną z członkiń grupy Peaky Angels w Magical Girl Raising Project.
+    Na pierwszy rzut oka wydaje się spokojna, cicha i nieco wycofana,
+    jednak w rzeczywistości jest bardzo lojalna wobec Ruler
+    i gotowa wykonywać jej polecenia bez wahania.
+  </p>
+
+  <p class="lead">
+    Po przemianie w magical girl Tama zyskuje zdolność manipulowania własnymi włosami,
+    które mogą rosnąć, wydłużać się i atakować przeciwników.
+    Jej włosy stają się zarówno bronią ofensywną, jak i narzędziem kontroli pola walki.
+    Dzięki temu potrafi unieruchamiać przeciwników i wspierać swoją grupę w starciach.
+  </p>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <span>Imię</span>
+      <b>Tama</b>
+    </div>
+
+    <div class="info-box">
+      <span>Imię cywilne</span>
+      <b>Kokona Matsumoto</b>
+    </div>
+
+    <div class="info-box">
+      <span>Wiek</span>
+      <b>17 lat</b>
+    </div>
+
+    <div class="info-box">
+      <span>Status</span>
+      <b>Nie żyje</b>
+    </div>
+  </div>
+
+  <div class="section-head" style="margin-top:6px;">
+    <h2>Opis postaci</h2>
+    <p>Włosy jako broń i lojalność wobec Ruler</p>
+  </div>
+
+  <p class="bio">
+    Tama jest jedną z bardziej cichych, ale ważnych członkiń Peaky Angels.
+    Nie wyróżnia się agresją ani dominacją,
+    ale jej lojalność wobec Ruler sprawia,
+    że bierze udział w wielu kluczowych wydarzeniach grupy.
+    Jej zdolność manipulacji włosami pozwala jej kontrolować przeciwników z dystansu,
+    co czyni ją bardzo użyteczną w walce zespołowej.
+    W świecie Magical Girl Raising Project jej historia pokazuje,
+    jak osoby o spokojnym charakterze mogą zostać wciągnięte w brutalne konflikty
+    i podporządkowane silniejszym liderom.
+  </p>
+
+  <div class="chips">
+    <span class="chip">Peaky Angels</span>
+    <span class="chip">Manipulacja włosami</span>
+    <span class="chip">Lojalna</span>
+    <span class="chip">Wsparcie drużyny</span>
+  </div>
+</div>
+    <div class="actions">
+      <a class="btn primary" href="/postacie/">Wróć do listy postaci</a>
+      <a class="btn" href="/">Strona główna</a>
+    </div>
+  </div>
+</div>
+
+  </section>
+</main><footer>
+  © 2026 Magical Girl Raising Project
+</footer><script>
+  const root = document.documentElement;
+  const themeSelect = document.getElementById('themeSelect');
+
+  function applyTheme(theme) {
+    if (theme === 'auto') {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = prefersDark ? 'dark' : 'light';
+    } else {
+      root.dataset.theme = theme;
+    }
+  }
+
+  const savedTheme = localStorage.getItem('mgrp-theme') || 'light';
+  themeSelect.value = savedTheme;
+  applyTheme(savedTheme);
+
+  themeSelect.addEventListener('change', () => {
+    const selected = themeSelect.value;
+    localStorage.setItem('mgrp-theme', selected);
+    applyTheme(selected);
+  });
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  media.addEventListener?.('change', () => {
+    if (themeSelect.value === 'auto') applyTheme('auto');
+  });
+</script></body>
+</html>
