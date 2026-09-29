@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sStr = String(seconds).padStart(2, '0');
 
     // Wstawianie tekstu do paska
-    bar.innerHTML = `✨ Magical Girl Raising Project Releasing In: <strong>${dStr}d:${hStr}h:${mStr}m:${sStr}s</strong> ✨`;
+    bar.innerHTML = `✨ Magical Girl Raising Project Restart Releasing In: <strong>${dStr}d:${hStr}h:${mStr}m:${sStr}s</strong> ✨`;
   }
 
   // Uruchomienie odliczania od razu i odświeżanie co 1 sekundę
