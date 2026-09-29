@@ -251,6 +251,18 @@
       .menu { justify-content: flex-start; }
       .share-grid { grid-template-columns: 1fr; }
     }
+    .announcement-bar {
+  background-color: #f39c12;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: bold;
+  width: 100%;
+  
+  position: sticky;
+  top: 60px; /* Zastąp '60px' dokładną wysokością Twojego menu */
+  z-index: 999;
+}
   </style>
 </head>
 <body>
@@ -405,5 +417,6 @@ To dopiero początek rozbudowy projektu, ale już teraz strona ma własny charak
   copyLinkBtn.addEventListener('click', copyLink);
   updateShareLinks();
 </script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
