@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="pl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pechka - Magical Girl Raising Project." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://magicalgirlraisingproject.github.io/icons/favicon.png" />
+  <title>Pechka - Magical Girl Raising Project</title>  <style>
+    :root {
+      --bg: #f5f7ff;
+      --bg-soft: #ffffff;
+      --card: rgba(255, 255, 255, 0.55);
+      --card-strong: rgba(255, 255, 255, 0.70);
+      --text: #182033;
+      --muted: #5f6b85;
+      --border: rgba(24, 32, 51, 0.10);
+      --accent: #ff3d8d;
+      --accent-2: #7a2cff;
+      --shadow: 0 18px 50px rgba(40, 52, 82, 0.10);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0f1020;
+      --bg-soft: #151733;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: rgba(245, 247, 255, 0.75);
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,61,141,0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(122,42,255,0.10), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg-soft));
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg-soft) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand img { width: 42px; height: 42px; border-radius: 12px; }
+
+    .menu { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .menu a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    html[data-theme="dark"] .menu a { background: rgba(255,255,255,0.06); }
+
+    .theme select {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+    }
+
+    main { padding-bottom: 40px; }
+
+    .hero { padding: 28px 0 18px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .portrait {
+      min-height: 0;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .content {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 61, 141, 0.10);
+      border: 1px solid rgba(255, 61, 141, 0.16);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .info-box {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.18);
+    }
+
+    html[data-theme="dark"] .info-box {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .info-box span {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .info-box b {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 14px 0;
+    }
+
+    .section-card {
+      background: linear-gradient(180deg, var(--card-strong), var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .section-head {
+      margin-bottom: 14px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .bio {
+      margin: 0;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.18);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    html[data-theme="dark"] .chip { background: rgba(255,255,255,0.05); }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .portrait { min-height: 360px; }
+    }
+
+    @media (max-width: 560px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .menu { justify-content: flex-start; }
+    }
+    .announcement-bar {
+  background-color: #f39c12;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: bold;
+  width: 100%;
+  
+  position: sticky;
+  top: 60px; /* Zastąp '60px' dokładną wysokością Twojego menu */
+  z-index: 999;
+}
+  </style></head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Strona główna">
+      <img src="https://magicalgirlraisingproject.github.io/icons/logo.png" alt="Logo Magical Girl Raising Project">
+      Magical Girl Raising Project
+    </a><div class="menu">
+  <a href="/postacie/">Postacie</a>
+  <a href="/galeria/">Galeria</a>
+  <a href="/nowosci/">Nowości</a>
+  <a href="/kontakt/">Kontakt</a>
+</div>
+
+<div class="theme">
+  <select id="themeSelect" aria-label="Wybór motywu">
+    <option value="light">Jasny</option>
+    <option value="dark">Ciemny</option>
+    <option value="auto">Auto</option>
+  </select>
+</div>
+
+  </div>
+</header><main class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="card portrait">
+        <img src="https://magicalgirlraisingproject.github.io/files/yunael.jpg" alt="Yunael / Yuna Amasato">
+      </div><div class="card content">
+  <span class="eyebrow">Pechka / Chika Tatehara</span>
+  <h1>Yunael</h1>
+
+  <p class="lead">
+    Pechka (ペチカ), also known by her real name Chika Tatehara (建原智香), is one of the main protagonists of Magical Girl Raising Project: Restart. She also makes a major appearance in Unripe Duet.
+
+She is a middle school student suffering from several self-confidence issues who finds confidence in her Magical Girl form. She is also a member of Team Clantail.
+  </p>
+
+  <p class="lead">
+    As a human, Chika describes herself as having moles all over her body, and feels like her nose points too far upward. Her right and left breast do not match in size or shape, and her fingertips are thick and round. Chika says she is so bowlegged that her legs never touch, and feels she is too short despite how much milk she drinks. She also thinks her eyes could be bigger.
+
+As seen in Episodes Δ, Chika has short dark hair, with a barrette pinning back some of her hair. She is seen wearing a plain long-sleeved t-shirt with a patterned apron overtop.
+
+Her brother refers to her as "gangly" and assumes she is easily bullied.
+  </p>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <span>Imię</span>
+      <b>Pechka</b>
+    </div>
+
+    <div class="info-box">
+      <span>Imię cywilne</span>
+      <b>Chika Tatehara</b>
+    </div>
+
+    <div class="info-box">
+      <span>Wiek</span>
+      <b>Brak Danych</b>
+    </div>
+
+    <div class="info-box">
+      <span>Status</span>
+      <b>Nie żyje</b>
+    </div>
+  </div>
+
+  <div class="section-head" style="margin-top:6px;">
+    <h2>Opis postaci</h2>
+    <p></p>
+  </div>
+
+  <p class="bio">
+    Pechka is an insecure, timid, and shy girl. She believes herself to be uninteresting and lacking initiative.
+
+However, upon becoming a beautiful Magical Girl, Pechka gathers enough confidence to approach her popular crush. She transforms from Chika to Pechka before removing her costume and dressing herself in civilian clothes. Pechka then visits her crush, Ninomiya-kun, during baseball practice with a meal she'd prepared using her magic. Unlike Chika, who she considers unattractive, Pechka is able to part the sea of female fans with ease, thus making Pechka feel important.
+
+Upon joining the game, Pechka is adopted into Team Clantail solely because they were lacking a fourth member. The unique feeling of being prettier than the average girl has swept away the second she's put in a situation with other Magical Girls. Pechka is not skilled in fighting and deems her ability fruitless.
+
+For a period of time, Pechka does not support her team and simply stands on the sidelines as they collect game currency. It's very obvious to her that they see her as a burden, and she makes no effort to break up Rionetta's and Nonako's constant squabbling.
+
+It isn't until Team Clantail purchases a cooking pot that Pechka's true purpose makes itself known. She becomes the caretaker of the group and uses her magic to replenish her hungry teammates. Thanks to the delicious meals, they become very fond of her and, unlike earlier in the game, happily protect her without complaint.
+  </p>
+
+  <div class="chips">
+    <span class="chip"></span>
+    <span class="chip"></span>
+    <span class="chip"></span>
+    <span class="chip"></span>
+  </div>
+</div>
+    <div class="actions">
+      <a class="btn primary" href="/postacie/">Wróć do listy postaci</a>
+      <a class="btn" href="/">Strona główna</a>
+    </div>
+  </div>
+</div>
+
+  </section>
+</main><footer>
+  © 2026 Magical Girl Raising Project
+</footer><script>
+  const root = document.documentElement;
+  const themeSelect = document.getElementById('themeSelect');
+
+  function applyTheme(theme) {
+    if (theme === 'auto') {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = prefersDark ? 'dark' : 'light';
+    } else {
+      root.dataset.theme = theme;
+    }
+  }
+
+  const savedTheme = localStorage.getItem('mgrp-theme') || 'light';
+  themeSelect.value = savedTheme;
+  applyTheme(savedTheme);
+
+  themeSelect.addEventListener('change', () => {
+    const selected = themeSelect.value;
+    localStorage.setItem('mgrp-theme', selected);
+    applyTheme(selected);
+  });
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  media.addEventListener?.('change', () => {
+    if (themeSelect.value === 'auto') applyTheme('auto');
+  });
+</script><script src="/script.js" defer></script></body>
+</html>
