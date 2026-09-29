@@ -213,6 +213,21 @@
       .char-grid { grid-template-columns: 1fr; }
       .menu { justify-content: flex-start; }
     }
+
+    .announcement-bar {
+  background-color: #f39c12; /* Kolor tła paska */
+  color: #ffffff;            /* Kolor tekstu */
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  
+  /* Przypięcie do góry podczas przewijania */
+  position: sticky;
+  top: 0;                   /* Jeśli Twoje menu NIE jest przyklejone */
+  z-index: 999;              /* Zapewnia, że pasek będzie na wierzchu */
+}
   </style></head>
 <body>
 <header>
