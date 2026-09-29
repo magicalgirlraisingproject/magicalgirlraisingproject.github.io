@@ -284,6 +284,18 @@
       .menu { justify-content: flex-start; }
       .bubble { max-width: 90%; }
     }
+    .announcement-bar {
+  background-color: #f39c12;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: bold;
+  width: 100%;
+  
+  position: sticky;
+  top: 60px; /* Zastąp '60px' dokładną wysokością Twojego menu */
+  z-index: 999;
+}
   </style>
 </head>
 <body>
@@ -446,5 +458,6 @@
     }, delay);
   });
 </script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
