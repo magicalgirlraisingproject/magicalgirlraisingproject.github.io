@@ -397,15 +397,81 @@
 
   // --- Baza wiedzy bota (JSON) ---
   const botKnowledge = [
-    { keywords: ["postac", "postacie", "bohater"], answer: "Listę postaci znajdziesz w sekcji „Postacie” w menu głównym." },
-    { keywords: ["galeri", "obraz", "grafik", "zdjęc"], answer: "W „Galerii” znajdziesz grafiki związane z serią — sekcja jest sukcesywnie rozbudowywana." },
-    { keywords: ["nowo", "aktualnoś", "update", "zmian"], answer: "Najnowsze dodatki i zmiany na stronie opisujemy w sekcji „Nowości”." },
-    { keywords: ["błąd", "bug", "nie działa", "problem"], answer: "Błąd na stronie najlepiej zgłosić przez formularz na stronie Wsparcie — opisz tam dokładnie, co się dzieje." },
-    { keywords: ["kontakt", "napisać", "wiadomoś", "e-mail", "email", "mail"], answer: "Aby się z nami skontaktować, przejdź do strony Wsparcie i wypełnij formularz — odpowiemy najszybciej, jak to możliwe." },
-    { keywords: ["inna seria", "inny anime", "inne serie", "inny tytuł"], answer: "Obecnie strona skupia się wyłącznie na Magical Girl Raising Project." },
-    { keywords: ["rozwijana", "rozwój", "plany", "przyszłoś"], answer: "Tak, strona jest sukcesywnie rozwijana — nowe podstrony i poprawki pojawiają się na bieżąco." },
-    { keywords: ["cześć", "hej", "witaj", "siema", "dzień dobry"], answer: "Cześć! W czym mogę pomóc?" },
-    { keywords: ["dzięki", "dziękuję", "dziekuje"], answer: "Nie ma za co! Daj znać, jeśli pojawi się kolejne pytanie." }
+            { 
+                keywords: ["postac", "postacie", "bohater", "czarodziejk", "magical girl", "bohaterk"], 
+                answer: "Listę postaci z Magical Girl Raising Project znajdziesz w sekcji „Postacie” w menu głównym. Rozpisaliśmy tam każdą z 16 głównych czarodziejek (i nie tylko)!" 
+            },
+            { 
+                keywords: ["galeri", "obraz", "grafik", "zdjęc", "art", "fanart", "tapet", "screen"], 
+                answer: "W „Galerii” znajdziesz grafiki, fanarty i kadry z anime. Sekcja jest sukcesywnie rozbudowywana o materiały z najnowszych wydań Light Novel." 
+            },
+            { 
+                keywords: ["nowo", "aktualnoś", "update", "zmian", "news", "dziennik", "wiadomości"], 
+                answer: "Najnowsze dodatki, zmiany na stronie oraz newsy ze świata MGRP (np. o nowych tomach nowelek) opisujemy w sekcji „Nowości”." 
+            },
+            { 
+                keywords: ["błąd", "bug", "nie działa", "problem", "glitch", "crash", "nie ładuje"], 
+                answer: "Błąd na stronie najlepiej zgłosić przez formularz na stronie Wsparcie — opisz tam dokładnie, co się dzieje. Fav to naprawi... chyba." 
+            },
+            { 
+                keywords: ["kontakt", "napisać", "wiadomoś", "e-mail", "email", "mail", "discord"], 
+                answer: "Aby się z nami skontaktować, przejdź do strony Wsparcie i wypełnij formularz — odpowiemy najszybciej, jak to możliwe." 
+            },
+            { 
+                keywords: ["inna seria", "inny anime", "inne serie", "inny tytuł", "madoka"], 
+                answer: "Obecnie nasza strona skupia się wyłącznie na uniwersum Magical Girl Raising Project. Choć fani Madoki na pewno poczują się tu jak w domu!" 
+            },
+            { 
+                keywords: ["rozwijana", "rozwój", "plany", "przyszłoś", "kiedy update"], 
+                answer: "Tak, strona jest sukcesywnie rozwijana — nowe podstrony i poprawki pojawiają się na bieżąco, w miarę ukazywania się nowych informacji z Japonii." 
+            },
+
+            {
+                keywords: ["fav", "maskotka", "pon", "czarno biały", "demon"],
+                answer: "Fav to wirtualna maskotka z gry Magical Girl Raising Project. Rozdaje instrukcje czarodziejkom i zawsze kończy zdania słowem 'pon'. Lepiej mu jednak nie ufać..."
+            },
+            {
+                keywords: ["cukierki", "cukierek", "magiczne cukierki", "punkty", "ranking"],
+                answer: "Magiczne Cukierki (Magical Candies) to punkty przyznawane czarodziejkom za robienie dobrych uczynków w prawdziwym świecie. Raz w tygodniu czarodziejka z najmniejszą ilością cukierków odpada z gry (i traci życie)."
+            },
+            {
+                keywords: ["fabuł", "o czym", "histori", "streszczenie", "zasady"],
+                answer: "MGRP opowiada o grze mobilnej dającej 1 na 10 000 szans na stanie się prawdziwą czarodziejką. W mieście N-City pojawia się 16 czarodziejek, jednak wkrótce administracja postanawia zmniejszyć ich liczbę o połowę. Zwykłe zbieranie punktów zamienia się w brutalną grę o przetrwanie."
+            },
+            {
+                keywords: ["restart", "drugi sezon", "sezon 2", "kontynuacja", "limited", "jokers", "kiedy nowe anime"],
+                answer: "Oryginalne anime pokrywa tylko pierwszy tom serii (Unmarked). Zostało jednak oficjalnie zapowiedziane anime 'Magical Girl Raising Project: Restart', adaptujące kolejny arc fabularny z Light Novel. Czeka nas zupełnie nowa gra i nowe czarodziejki!"
+            },
+            {
+                keywords: ["light novel", "nowel", "ksiazk", "książk", "gdzie czytac", "źródło", "tom"],
+                answer: "Seria Magical Girl Raising Project to pierwotnie seria powieści Light Novel autorstwa Asari Endou, ilustrowana przez Maruino. Zawiera ona wiele arców (Restart, Limited, Jokers, Aces itd.). Seria jest wciąż rozwijana i wydawana również po angielsku przez Yen Press."
+            },
+            {
+                keywords: ["gdzie obejrzeć", "odcinki", "crunchyroll", "anime"],
+                answer: "Pierwszy sezon anime 'Magical Girl Raising Project' możesz legalnie obejrzeć na popularnych platformach streamingowych, np. na Crunchyroll."
+            },
+            {
+                keywords: ["snow white", "koyuki", "biała śnieżka"],
+                answer: "Snow White (Koyuki Himekawa) to główna bohaterka pierwszej części serii. Jej unikalną mocą jest słyszenie myśli osób będących w potrzebie. Jest wielką idealistką kochającą czarodziejki."
+            },
+            {
+                keywords: ["ripple", "la pucelle", "nemurin", "swim swim", "hardgore alice", "ruler", "calamity mary", "cranberry"],
+                answer: "O tę i inną magiczną czarodziejkę możesz poczytać znacznie szerzej w naszej sekcji 'Postacie'. Uwaga na spoilery dotyczące ich mocy i losów!"
+            },
+            
+            // SMALL TALK BOTA
+            { 
+                keywords: ["cześć", "hej", "witaj", "siema", "dzień dobry", "elo"], 
+                answer: "Cześć! Pon! W czym mogę Ci dzisiaj pomóc? Zbierasz dziś Cukierki?" 
+            },
+            { 
+                keywords: ["dzięki", "dziękuję", "dziekuje", "thx"], 
+                answer: "Nie ma za co! Pon! Daj znać, jeśli pojawi się kolejne pytanie, i pamiętaj: unikaj utraty Cukierków!" 
+            },
+            { 
+                keywords: ["kim jesteś", "co robisz", "bot", "ai", "twórca"], 
+                answer: "Jestem lokalnym asystentem AI tej strony, stworzonym, by pomagać fanom MGRP. Pon! Pomogę Ci odnaleźć sekcje, postacie i odpowiem na pytania o fabułę." 
+            }
   ];
 
   const fallbackAnswers = [
