@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // 2. Data docelowa w formacie ISO ze strefą GMT+9 (+09:00)
-  const targetDate = new Date("2026-10-06T02:00:00+09:00").getTime();
+  const targetDate = new Date("2026-10-20T02:00:00+09:00").getTime();
 
   // 3. Funkcja przeliczająca czas
   function updateCountdown() {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sStr = String(seconds).padStart(2, '0');
 
     // Wstawianie tekstu do paska
-    bar.innerHTML = `✨ Magical Girl Raising Project Restart Releasing In: <strong>${hStr}h:${mStr}m:${sStr}s</strong> ✨`;
+    bar.innerHTML = `✨ Magical Girl Raising Project Episode 15 Releasing In: <strong>${hStr}h:${mStr}m:${sStr}s</strong> ✨`;
   }
 
   // Uruchomienie odliczania od razu i odświeżanie co 1 sekundę
