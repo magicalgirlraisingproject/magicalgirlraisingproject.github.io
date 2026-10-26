@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // 2. Data docelowa w formacie ISO ze strefą GMT+9 (+09:00)
-  const targetDate = new Date("2026-10-27T02:00:00+09:00").getTime();
+  const targetDate = new Date("2026-11-03T02:00:00+09:00").getTime();
 
   // 3. Funkcja przeliczająca czas
   function updateCountdown() {
